@@ -1,0 +1,161 @@
+:root {
+    --bg-color: #0f0f1a;
+    --panel-bg: #1a1a2e;
+    --accent-color: #e94560;
+    --text-color: #e2e8f0;
+    --success-color: #4ecca3;
+    --xp-color: #00bcd4;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.game-header {
+    background-color: var(--panel-bg);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.player-stats {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.xp-container {
+    background: #111;
+    border-radius: 10px;
+    width: 150px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.xp-bar {
+    background-color: var(--xp-color);
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+#xp-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    top: 2px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.menu-section {
+    background: var(--panel-bg);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #252542;
+}
+
+.grid-subjects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-subject {
+    background: #222244;
+    color: white;
+    border: 2px solid #333366;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-subject:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+}
+
+.btn-subject.special {
+    background: linear-gradient(45deg, #ff9f43, #ff5252);
+    border: none;
+}
+
+.hidden { display: none !important; }
+
+/* Styles des Quiz */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    background: #252542;
+    color: white;
+    border: 1px solid #3d3d6b;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.option-btn:hover { background: #32325c; }
+.correct { background-color: var(--success-color) !important; color: black; font-weight: bold; }
+.wrong { background-color: var(--accent-color) !important; }
+
+.btn-back, .tab-link {
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.tab-link.active { background: var(--accent-color); border: none; }
+.fiche-card {
+    background: #222244;
+    border-left: 5px solid var(--xp-color);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.fiche-card h3 {
+    margin-top: 0;
+    color: var(--xp-color);
+}
+.math-box {
+    background: #111;
+    border: 1px dashed var(--accent-color);
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: #fff;
+    text-align: center;
+}

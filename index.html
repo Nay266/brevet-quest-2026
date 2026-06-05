@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brevet Quest 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Le traducteur de maths magique est ici : -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+</head>
+<body>
+
+    <!-- BARRE SUPÉRIEURE : STATS DU JOUEUR -->
+    <header class="game-header">
+        <div class="logo">🎯 Brevet Quest 2026</div>
+        <div class="player-stats">
+            <span id="countdown" class="badge-item">⏳ Chargement...</span>
+            <span class="stat-item">⭐ Niveau <span id="level">1</span></span>
+            <div class="xp-container">
+                <div id="xp-bar" class="xp-bar"></div>
+                <span id="xp-text">0 / 100 XP</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- MENU PRINCIPAL -->
+        <section id="main-menu" class="menu-section">
+            <h2 class="section-title">Tableau de Bord du Héros</h2>
+            
+            <div class="quick-stats">
+                <div class="stat-card">🏆 Badges : <span id="badge-count">0</span>/5</div>
+                <div class="stat-card">🔥 Progression Générale : <span id="global-progress">0%</span></div>
+            </div>
+
+            <h3 class="subsection-title">Choisissez votre quête (Matières)</h3>
+            <div class="grid-subjects">
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'francais')">Français</button>
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'maths')">Mathématiques</button>
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'histoire')">Histoire</button>
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'geographie')">Géographie</button>
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'emc')">EMC</button>
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'svt')">SVT</button>
+        <button class="btn-subject" onclick="naviguer('subject-page', 'main-menu', 'physique')">Physique-Chimie</button>
+    </div>
+</section>
+
+        <!-- PAGE MATIÈRE (DYNAMIQUE) -->
+        <section id="subject-page" class="menu-section hidden">
+            <button class="btn-back" onclick="showMainMenu()">⬅️ Retour au menu</button>
+            <h2 id="subject-title">Nom de la Matière</h2>
+            
+            <div class="subject-tabs">
+                <button class="tab-link active" onclick="switchTab('cours')">📖 Fiches</button>
+                <button class="tab-link" onclick="switchTab('quiz')">⚔️ Quiz</button>
+            </div>
+
+            <!-- Contenu des fiches -->
+            <div id="tab-cours" class="tab-content">
+                <div id="cours-placeholder">Les fiches de révision apparaîtront ici.</div>
+            </div>
+
+            <!-- Contenu du Quiz -->
+            <div id="tab-quiz" class="tab-content hidden">
+                <div id="quiz-container">
+                    <p id="quiz-question">Question ici ?</p>
+                    <div id="quiz-options" class="options-grid"></div>
+                    <button id="btn-next-quiz" class="hidden" onclick="nextQuestion()">Question suivante ➡️</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
