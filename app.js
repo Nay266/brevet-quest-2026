@@ -164,7 +164,7 @@ function nextQuestion() {
 }
 
 // --- ULTRA-BASE DE DONNÉES DU COMPLÈTE (VERSION FINALE) ---
-const database = {
+const database = 
  maths: {
         title: "📐 Mathématiques",
         fiches: `
